@@ -381,9 +381,9 @@ fit<-lm(Hunger_Score~Summary_ZScore_5,data=na.omit(df))
 summary(fit)
 ```
 
-When we visalize this relationship we see that it appears that as the summary score increases, the hunger score decreases. This trend is true across continents.  When we regress Hunger Score against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a negative association between these variables. 
+When we visalize this relationship we see that it appears that as the summary score increases, the hunger score decreases. This trend is true across continents.  When we regress Hunger Score against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a negative association between these variables
 
-When we regress Hunger Score against the three 3Cs on a per-continent basis we find that the coefficient is significant for all continents except for Europe.  We believe that this is due to the small number of countries for which we have data on this continent.  For all continents there is a negative association between these variables. The 3Cs metric alone best predicts the Hunger Score in the Americas, where the goodness of fit value is the highest among all continents.
+When we regress Hunger Score against the three 3Cs on a per-continent basis we find that the coefficient is significant for all continents except for Europe.  We believe that this is due to the small number of countries for which we have data on this continent.  For all continents there is a negative association between these variables.
 
 When we do a regression of corruption, climate, and conflict as separate predictors for Hunger Score, we find that only climate is statistically significant.  There is a negative association between Hunger Score and climate.  When we regress Hunger Score against the three 3Cs separately on a per-continent basis we find that the coefficient for climate is significant for all continents (except Europe) whereas the others (Corruption and Conflict) are not.  The coefficient for climate is negative for all continents.  We see that climate is the most important predictor of Hunger Score.
 
@@ -441,16 +441,15 @@ summary(fit)
 fit<-lm(HDI_2014~Summary_ZScore_5,data=na.omit(df))  
 summary(fit)
 ```
-When we regress HDI against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a positive association between these variables
+When we regress HDI against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a positive association between these variables.
 
 When we regress HDI against the three 3Cs on a per-continent basis we find that the coefficient is significant for all continents except for Europe.  We believe that this is due to the small number of countries for which we have data on this continent.  For all continents there is a positive association between these variables.
 
 When we do a regression of corruption, climate, and conflict as separate predictors for HDI, we find that both corruption and climate are statistically significant.  There is a positive association between HDI and climate and a negative association between HDI and corruption.
 
-When we regress HDI against the three 3Cs separately on a per-continent basis we find that the coefficient for climate is significant for all continents whereas the others are not.  Finding that climate is the most important predictor of HDI is kinda surprising but also kinda cool! 
+When we regress HDI against the three 3Cs separately on a per-continent basis we find that the coefficient for climate is significant for all continents whereas the others are not (apart from corruption in the Americas).  Finding that climate is the most important predictor of HDI is kinda surprising but also kinda cool! 
 
-When using HDI we see that when the summary score only consists of Conflict and Corruption, it no longer significantly predicts HDI.  But when you have Climate and Corruption or Climate and Conflict, the summary score is still a significant predictor of HDI. We believe this suggests that Climate is the main driver in our Summary score.
-
+When the summary score only consists of Conflict and Corruption, it still significantly predicts HDI. Similarly, when you consider Climate and Corruption or Climate and Conflict and HDI, the summary score is still a significant predictor. Although the effects estimates are strongest when Climate is still included in the summary score, these results also suggest that conflict and corruption may have a synergistic effect on HDI.
 
 # Exploring the Relationship Between the 3 Cs and GDP
 When speaking with Derek, he suggested that the GDP might also be a good indicator of hunger as well.  Thus we investigated the association between the 3 Cs (both cummulatively and separately) with GDP.
@@ -495,13 +494,12 @@ ldply(models, coef)
 # Print the summary of each model
 l_ply(models, summary, .print = TRUE)
 ```
-When we regress GDP against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a positive association between these variables.
+When we regress GDP against the three 3Cs we find the coefficient of the 3Cs is not statistically significant at the 0.05 alpha level, suggesting that the 3Cs summary measure is not predictive of GDP. 
 
-When we regress GDP against the three 3Cs on a per-continent basis we find that the 3C coefficient is significant for all continents except for Asia.  For all continents there is a positive association between these variables.
-
-When we do a regression of corruption, climate, and conflict as separate predictors for GDP, we find that both conflict and climate are statistically significant.  There is a positive association between GDP and climate as well as with conflict. 
+When we do a regression of corruption, climate, and conflict as separate predictors for GDP, we find that both conflict and climate are statistically significant.  There is a positive association between GDP and climate as well as with conflict. Given that the p-value of corruption is very large when we do a regression of corruption and GDP, this is likely the driver behind why our summary score was not predictive of GDP. 
 
 When we regress GDP against the three 3Cs separately on a per-continent basis we find the following: For Africa both conflict and climate have a statistically significant positive association with GDP. For the Americas conflict has a statistically significant positive association with GDP. For Asia and Europe we find that none of the Cs has a statistically significant association with GDP.
+
 
 Looking at the plots we note several outliers in GDP which we believe may be affecting our results.  Thus we subset the data to only look at those countries with GDP of 5000 or less and re-run the regressions. This only removes three countries from the regressions: China, India, USA. <is this next statement ok?> We believe these outliers are okay to remove as they are not fragile states or countries that need focus on for the goal of ending global hunger and poverty by 2030. <again, not sure this is ok to say? india?>
 ```{r}
@@ -541,11 +539,11 @@ Again we investigated playing around with the summary score.  We notice that whe
 
 ```{r}
 ############### Toying with Summary Score ###############
-#Summary Score is still a significant predictor of GDP, once you remove Climate
+#Summary Score is not a significant predictor of GDP, once you remove Climate
 fit<-lm(GDP~Summary_ZScore_3,data=na.omit(df))  
 summary(fit)
 
-#Summary Score is still a significant predictor of GDP, even when Corruption is removed
+#Summary Score is not a significant predictor of GDP, even when Corruption is removed
 fit<-lm(GDP~Summary_ZScore_4,data=na.omit(df))  
 summary(fit)
 
@@ -556,4 +554,5 @@ summary(fit)
 
 #Final Analysis
 
+Our analysis combines three unique measurements of issues facing the world today - climate change, corruption, and conflict - in order to explain several outcomes related to global hunger: a global hunger score, the Human Development Index, and GDP. What we find is that when we combine the three measurements into a single metric, the trend is similar across the board: better performance in all "three Cs" is associated with lower global hunger by country - as assessed directly by the hunger score and by proxy through HDI. When we dissect that score into its original components, we see slight variations: climate change is the strongest predictor of the hunger score and the Human Development Index, while conflict and climate are both strong predictors of GDP, but conflict is ultimately the strongest. Countries with resilience to climate change are, on average, more resilient against global hunger and are better performing developmentally. Despite the individual pieces, we have learned that, on the whole, the "big picture" summary score may provide a simple and accessible way of measuring country fragility, given that clear trends are seen using this metric. Alternative outcome measures such as the "poverty headcount ratio at $1.90/day" may provide more useful additions to the summary score than GDP, as we were unable to determine statistically significant associations between the 3Cs summary score and GDP. Nonetheless, we believe that the creation of summary scores like this may aid policymakers in setting agendas for action against global hunger, and in creating priority interventions targeted at countries who perform poorly on these three Cs. 
 
