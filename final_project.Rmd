@@ -193,7 +193,7 @@ df$Summary_ZScore_4 <- (df$Climate_Nominal_Zscore+df$Conflict_Zscore_Reversed)/2
 #Removing Conflict from Summary Score 
 df$Summary_ZScore_5 <- (df$Corruption_Zscore+df$Climate_Nominal_Zscore)/2
 ```
-So our data set, called df, has dimensions 274 by 24.  The columns are:
+So our data set, called df, has dimensions 274 by 25.  The columns are:
 
 Country
 
