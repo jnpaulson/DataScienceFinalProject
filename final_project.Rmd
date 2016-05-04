@@ -535,7 +535,7 @@ Again, when we regress GDP against the three 3Cs we find the coefficient of the 
 
 Again, when we do a regression of corruption, climate, and conflict as separate predictors for GDP, we find that both conflict and climate are statistically significant.  Also when we regress GDP against the three 3Cs separately on a per-continent basis we find that conflict and climate have a statistically significant positive association with GDP for all countries.
 
-Again we investigated playing around with the summary score.  We notice that when we remove Climate or Corruption from the summary score that the summary is still a significant predictor of GDP.  However when you remove Conflict from the summary score, the summary is no longer a significant predictor of GDP.  This would indicate that conflict is the strongest predictor of GDP out of the 3 Cs. <do we think this is an okay statement?>
+Again we investigated playing around with the summary score.  We notice that no combination of two measures aids in the prediction of GDP. Even when corruption is removed and the summary score only includes conflict and climate, which we found to be indepenent predictors of GDP, statistical significance is still not reached. 
 
 ```{r}
 ############### Toying with Summary Score ###############
