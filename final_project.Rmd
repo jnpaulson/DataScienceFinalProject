@@ -294,7 +294,7 @@ climate_plot + geom_point(aes(size=Summary_ZScore_2)) + geom_smooth(method="lm")
 gdp_plot <- ggplot(na.omit(df), aes(GDP, Hunger_Score))
 gdp_plot + geom_point(aes(color=continent, size=Summary_ZScore_2)) + labs(title="Measuring the GDP based on PPP against the Global Hunger Index", x="GDP based on purchasing-power-parity (PPP) valuation (in billion of current international dollars)", y="Global Hunger Score") + geom_smooth() + scale_size(range = c(0, 3))
 
-############# Ggplot viz of GDP against Hunger Score (zoom in) #######################
+############# Ggplot viz of GDP against Hunger Score (zoom in) #########################
 df_2 <- df %>% filter(GDP<1000)
 gdp_plot <- ggplot(na.omit(df_2), aes(GDP, Hunger_Score))
 gdp_plot + geom_point(aes(color=continent, size=Summary_ZScore_2)) + labs(title="Measuring the GDP based on PPP against the Global Hunger Index", x="GDP based on purchasing-power-parity (PPP) valuation (in billion of current international dollars)", y="Global Hunger Score") + geom_smooth() + scale_size(range = c(0, 3))
