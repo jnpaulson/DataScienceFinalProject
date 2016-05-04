@@ -429,7 +429,7 @@ ldply(models, coef)
 l_ply(models, summary, .print = TRUE)
 
 ############### Toying with Summary Score ###############
-#Summary Score is no longer a significant predictor of HDI, once you remove Climate
+#Summary Score is still a significant predictor of HDI, once you remove Climate
 fit<-lm(HDI_2014~Summary_ZScore_3,data=na.omit(df))  
 summary(fit)
 
