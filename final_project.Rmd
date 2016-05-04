@@ -2,6 +2,8 @@
 title: "Final Project 2016: Development Builds Resilience"
 output: html_document
 ---
+# Development Builds Resilience
+
 # Overview and Motivation
 National governments and global leaders are rallying behind a common goal to end global hunger and poverty by 2030, perhaps best embodied by the UN's 17 Sustainable Development Goals (SDGs), the most comprehensive effort yet to tackle the toughest development challenges facing the global community. Bread for the World agrees with the analysis of leaders like the World Bank and the World Food Program, which insists that getting extreme hunger and malnutrition to the 'zero zone' by 2030 is achievable in most countries. Yet there remains a small group of fragile states where unique vulnerabilities would make ending hunger much more difficult. Those vulnerabilities can be categorized into three groups, the three Cs: conflict, corruption, and climate change. Countries vary in their level of vulnerability on each of the 3 Cs. Some may only be vulnerable in only one or two areas, while others could be vulnerable in all three. A rating index already exists for measuring country vulnerability on each of the three Cs. 
 
