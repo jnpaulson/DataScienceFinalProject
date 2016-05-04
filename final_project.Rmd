@@ -381,9 +381,9 @@ fit<-lm(Hunger_Score~Summary_ZScore_5,data=na.omit(df))
 summary(fit)
 ```
 
-When we visalize this relationship we see that it appears that as the summary score increases, the hunger score decreases. This trend is true across continents.  When we regress Hunger Score against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a negative association between these variables
+When we visalize this relationship we see that it appears that as the summary score increases, the hunger score decreases. This trend is true across continents.  When we regress Hunger Score against the three 3Cs we find the coefficient of the 3Cs is statistically significant at the 0.05 alpha level.  There is a negative association between these variables. 
 
-When we regress Hunger Score against the three 3Cs on a per-continent basis we find that the coefficient is significant for all continents except for Europe.  We believe that this is due to the small number of countries for which we have data on this continent.  For all continents there is a negative association between these variables.
+When we regress Hunger Score against the three 3Cs on a per-continent basis we find that the coefficient is significant for all continents except for Europe.  We believe that this is due to the small number of countries for which we have data on this continent.  For all continents there is a negative association between these variables. The 3Cs metric alone best predicts the Hunger Score in the Americas, where the goodness of fit value is the highest among all continents.
 
 When we do a regression of corruption, climate, and conflict as separate predictors for Hunger Score, we find that only climate is statistically significant.  There is a negative association between Hunger Score and climate.  When we regress Hunger Score against the three 3Cs separately on a per-continent basis we find that the coefficient for climate is significant for all continents (except Europe) whereas the others (Corruption and Conflict) are not.  The coefficient for climate is negative for all continents.  We see that climate is the most important predictor of Hunger Score.
 
